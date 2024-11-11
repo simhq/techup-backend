@@ -3,9 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aerosol Injection</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="script.js"></script> -->
 </head>
 <body>
-    <h1>Hello World</h1>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Ask Anything About Aerosol Injection</div>
+        <nav>
+            <ul>
+                <li><a href="#Home">Problem Statement</a></li>
+                <li><a href="#Benefits">Benefits</a></li>
+                <li><a href="#Concerns">Concerns</a></li>
+                <li><a href="#AIChat">AI Chat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Problem Statement Section -->
+    <section class="hero" id="Home">
+        <h1>Problem Statement
+        </h1>
+        <p>Aerosol Injection (AI) is an idea to help cool down the Earth by putting tiny, shiny particles high up in the sky to reflect some of the Sun’s heat. But people don’t know if this idea will be safe or if it will work well. Many people also don’t know much about it, which makes them feel unsure and a bit worried. It’s important to help everyone understand this idea better and decide if it is a good way to help with climate change.</p>
+    </section>
+
+    <!-- Benefit Section -->
+    <section class="benefit-section" id="Benefits">
+        <div class="product">
+            <h2>Benefit 1</h2>
+            <p>Global Cooling Potential: It can reduce solar radiation reaching the Earth's surface, which could lower global temperatures relatively quickly and help curb the effects of climate change.</p>
+            <img src="benefit 1.jpeg" alt="Benefit 1">
+        </div>
+        <div class="product">
+            <h2>Benefit 2</h2>
+            <p>Slows Ice Melt and Sea-Level Rise: By cooling the planet, it could slow down the melting of glaciers and polar ice caps, potentially reducing the rate of sea-level rise and its impacts on coastal communities.</p>
+            <img src="benefit 2.jpeg" alt="Benefit 2">
+        </div>
+        <div class="product">
+            <h2>Benefit 3</h2>
+            <p>Buys Time for Emissions Reductions: It could provide a temporary buffer, slowing warming to allow more time for transitioning to sustainable energy sources and reducing greenhouse gas emissions.</p>
+            <img src="benefit 3.jpeg" alt="Benefit 3">
+        </div>
+    </section>
+
+    <section class="concern-section" id="Concerns">
+        <div class="product">
+            <h2>Concern 1</h2>
+            <p>Environmental Impact: The long-term effects on atmospheric composition, weather patterns, and ecosystems remain uncertain. Altered precipitation patterns could potentially disrupt agriculture, water supply, and biodiversity.</p>
+            <img src="concern 1.jpeg" alt="Concern 1">
+        </div>
+        <div class="product">
+            <h2>Concern 2</h2>
+            <p>Technical Feasibility: Deployment at a meaningful scale requires advanced technologies and international collaboration, which may be hindered by cost, resource constraints, and technical limitations in accurately dispersing aerosols across the stratosphere.</p>
+            <img src="concern 2.jpeg" alt="Concern 2">
+        </div>
+        <div class="product">
+            <h2>Concern 3</h2>
+            <p>Ethical and Governance Issues: Deployment raises ethical questions about humanity’s right to modify planetary systems, potential impacts on vulnerable populations, and the risk of over-reliance on geoengineering as a "quick fix" for climate change rather than addressing root causes, such as greenhouse gas emissions. Additionally, governance frameworks to regulate and oversee SAI on an international scale are largely undeveloped.</p>
+            <img src="concern 3.jpeg" alt="Concern 3">
+        </div>
+    </section>
+
+    <!-- Chat Feature -->
+    <section class="AI-section" id="AIChat">
+        <div class="chat-container">
+            <div class="chat-header">Ask Anything About Aerosol Injection</div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Disclaimer Section -->
+    <section class="footer">
+        <h5>Disclaimer:
+        </h5>
+        <h6>This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.</h6>
+    </section>
+
+    <script>
+        //require('dotenv').config();
+        //const apiKey = process.env.APIKEY;
+        const apiKey = process.env.APIKEY; // Replace with your OpenAI API key
+
+        async function sendMessage() {
+            const inputField = document.getElementById('user-input');
+            const userMessage = inputField.value;
+            if (!userMessage) return;
+
+            // Display user's message in the chat
+            displayMessage('You: ' + userMessage);
+
+            // Clear input field
+            inputField.value = '';
+
+            // Call the OpenAI API
+            const response = await callOpenAI(userMessage);
+            setTimeout(() => {
+                displayMessage('AI: ' + response, 'ai');
+            }, 1000); // Simulate typing delay
+        }
+
+        function displayMessage(message, sender) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${sender}`;
+            messageElement.innerHTML = message.replace(/\n/g, "<br>"); // Support for line breaks
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
+        }
+
+        async function callOpenAI(message) {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'gpt-4o-mini', // or use 'gpt-4' if you have access
+                    messages: [
+                        { role: 'system', content: 'You are an expert that provides information about climate change, aerosol injection or other geo-engineering topics. You will only answer questions pertaining to climate change, aerosol injection or other geo-engineering topics. Your answer shall be simple enough for an average person without prior knowledge, to understand' },
+                        { role: 'user', content: message }
+                    ]
+                })
+            });
+
+            const data = await response.json();
+            return data.choices[0].message.content.trim();
+        }
+    </script>
 </body>
 </html>
