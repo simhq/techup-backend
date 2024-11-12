@@ -168,9 +168,10 @@
 
 .gform-container {
     display: flex;
-    width: 100%;
     justify-content: center; /* Horizontal centering */
     align-items: center;    /* Vertical centering */
+    width: 100%;
+    max-width: 1500px; /* Adjust the width as needed */
 }
 
 /* Responsive Navbar Adjustments */
