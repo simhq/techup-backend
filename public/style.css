@@ -85,7 +85,7 @@
 }
 
 .product img {
-    width: 100%;
+    width: 99%;
     border-radius: 8px;
     margin: 15px 0;
 }
@@ -109,7 +109,7 @@
 
 /* Chat Feature */
 .chat-container {
-    width: 100%;
+    width: 95%;
     max-width: 1500px; /* Adjust the width as needed */
     height: 500px;
     margin: 20px auto; /* Center the chat container */
