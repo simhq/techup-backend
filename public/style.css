@@ -227,15 +227,3 @@
     max-width: 90%; /* Limit it to prevent overflowing */
     margin: 10px auto; /* Center it with even spacing on smaller screens */
 }
-
-/* Adjust images for consistency */
-.product img {
-    width: 100%; /* Ensure images take full width in smaller screens */
-    max-width: 100%; /* Prevent them from overflowing */
-}
-
-/* Adjust the text in the product section */
-.product p, .product h2 {
-    font-size: 1em; /* Scale text down for readability on smaller screens */
-}
-
