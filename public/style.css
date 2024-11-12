@@ -110,7 +110,7 @@
 /* Chat Feature */
 .chat-container {
     width: 100%;
-    max-width: 1200px; /* Adjust the width as needed */
+    max-width: 1500px; /* Adjust the width as needed */
     height: 500px;
     margin: 20px auto; /* Center the chat container */
     border: 1px solid #ccc;
@@ -168,7 +168,7 @@
 
 .gform-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1700px;
     height: 1000px;
     margin: 20px auto;
     border: 1px solid #ccc;
