@@ -165,3 +165,34 @@
 .chat-input button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+/* Responsive Navbar Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Stack the menu items vertically */
+        width: 100%; /* Ensure it takes the full width */
+    }
+
+    .navbar ul li {
+        margin: 10px 0; /* Add spacing between items */
+    }
+
+    .navbar ul li a {
+        font-size: 1em; /* Reduce font size for smaller screens */
+    }
+}
+
+/* Prevent overflow */
+.navbar ul {
+    overflow: hidden; /* Ensure no content overflows */
+}
+
+.navbar ul li:last-child {
+    padding-bottom: 10px; /* Ensure the last item is visible */
+}
