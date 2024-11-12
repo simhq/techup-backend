@@ -166,6 +166,12 @@
     background-color: #0056b3; /* Darker blue on hover */
 }
 
+.gform-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;    /* Vertical centering */
+}
+
 /* Responsive Navbar Adjustments */
 @media (max-width: 768px) {
     .navbar {
