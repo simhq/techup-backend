@@ -65,14 +65,12 @@
 }
 
 .hero h1 {
-    width: 100%;
     font-size: 3em;
     color: #333;
     margin-bottom: 10px;
 }
 
 .hero p {
-    width: 100%;
     font-size: 1.5em;
     color: #555;
     margin-bottom: 20px;
@@ -80,7 +78,6 @@
 
 /* Product Section */
 .product {
-    width: 100%;
     text-align: left;
     max-width: 2000px;
     margin-left: 10px;
@@ -94,19 +91,16 @@
 }
 
 .product h2 {
-    width: 100%;
     font-size: 1.5em;
     color: #333;
 }
 
 .product p {
-    width: 100%;
     color: #555;
     font-size: 1.5em;
 }
 
 .footer {
-    width: 100%;
     text-align: left;
     margin-left: 10px;
     margin-right: 10px;
