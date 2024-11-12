@@ -171,7 +171,17 @@
     justify-content: center; /* Horizontal centering */
     align-items: center;    /* Vertical centering */
     width: 100%;
-    max-width: 1500px; /* Adjust the width as needed */
+    min-height: 100vh; /* Full viewport height for vertical centering */
+    padding: 20px; /* Optional padding for spacing */
+    box-sizing: border-box; /* Ensure padding does not affect width/height */
+}
+
+/* Add spacing between form sections (if required) */
+.gform-container .gForm-section {
+    width: 100%;
+    max-width: 1200px; /* Adjust the width as needed */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Responsive Navbar Adjustments */

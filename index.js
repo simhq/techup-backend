@@ -52,10 +52,15 @@ app.post("/api/chat", async (req, res) => {
       },
       body: JSON.stringify({
         model: "gpt-4",  // Ensure correct model name
-        messages: [{ role: "user", content: prompt }],
-        max_tokens: 200,
+        messages: [
+          { role: "system", content: "You are an expert in climate change and Geo-engineering. You will only answer questions relating to climate change, geo-engineering and aerosol injection. Your answer should be simple enough for a young adult without prior knowledge to understand. Keep your answer to less than 1000 tokens" }, // System prompt
+          { role: "user", content: prompt }
+        ],
+        max_tokens: 1000,
       })
     });
+  
+
   
     if (!response.ok) {
       throw new Error(`OpenAI API returned an error: ${response.status} ${response.statusText}`);
