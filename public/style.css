@@ -227,3 +227,10 @@
     max-width: 90%; /* Limit it to prevent overflowing */
     margin: 10px auto; /* Center it with even spacing on smaller screens */
 }
+
+.audio-section{
+    text-align: left;
+    max-width: 2000px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
